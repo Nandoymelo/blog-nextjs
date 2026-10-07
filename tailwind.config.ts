@@ -30,19 +30,6 @@ export default {
           200: '#187D86',
           300: '#0E474C',
         },
-        brand: {
-          50:  "#faf5ff",
-          100: "#f3e8ff",
-          200: "#e9d5ff",
-          300: "#d8b4fe",
-          400: "#c084fc",
-          500: "#a855f7",
-          600: "#9333ea",
-          700: "#7e22ce",
-          800: "#6b21a8",
-          900: "#581c87",
-          950: "#3b0764",
-        },
         gray: {
           100: '#F9FAFC',
           200: '#D3D5D9',
@@ -64,7 +51,6 @@ export default {
         inter: ['Inter', 'sans-serif'],
       },
       fontSize: {
-        // Headings - PT Sans Caption
         'heading-hg': ['40px', { lineHeight: '120%', fontWeight: '700' }],
         'heading-xl': ['32px', { lineHeight: '120%', fontWeight: '700' }],
         'heading-lg': ['28px', { lineHeight: '120%', fontWeight: '700' }],
@@ -72,17 +58,14 @@ export default {
         'heading-sm': ['20px', { lineHeight: '120%', fontWeight: '700' }],
         'heading-xs': ['16px', { lineHeight: '120%', fontWeight: '700' }],
 
-        // Body - Inter
         'body-md': ['16px', { lineHeight: '150%', fontWeight: '400' }],
         'body-sm': ['14px', { lineHeight: '150%', fontWeight: '400' }],
         'body-xs': ['12px', { lineHeight: '150%', fontWeight: '400' }],
 
-        // Action - Inter
         'action-md': ['16px', { lineHeight: 'normal', fontWeight: '500' }],
         'action-sm': ['14px', { lineHeight: 'normal', fontWeight: '500' }],
       },
     },
   },
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require('tailwindcss-animate')],
 } satisfies Config;
