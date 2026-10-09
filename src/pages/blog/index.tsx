@@ -1,8 +1,18 @@
-import { Search } from "@/components/search";
-import { BlogList } from "../../templates/blog";
+import { BlogList, type BlogListProps } from "../../templates/blog";
+import { posts } from "#site/content";
+import { GetStaticProps } from "next";
 
-export default function BlogPage() {
-  return (
-    <BlogList/>
-  );
+export default function BlogPage({posts}:BlogListProps) {
+  return <BlogList posts={posts}/>
 }
+
+export const getStaticProps = (async () => {
+  const sortedPosts = posts.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+  return {
+    props: {
+      posts: sortedPosts,
+    },
+  };
+}) satisfies GetStaticProps<BlogListProps>;

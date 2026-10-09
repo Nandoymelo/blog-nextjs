@@ -3,19 +3,19 @@ import { defineConfig, defineCollection, s } from 'velite';
 const posts = defineCollection({
   name: 'Post',
   pattern: '**/*.md',
-  schema: s
-    .object({
-      title: s.string(),
-      date: s.isodate(),
-      description: s.string(),
-      image: s.string(),
-      slug: s.path(),
-      body: s.markdown(),
-      author: s.object({
-        name: s.string(),
-        avatar: s.string(),
-       }),
+  schema: s.object({
+    title: s.string(),
+    date: s.isodate(),
+    description: s.string(),
+    image: s.string().regex(/^\//, 'O caminho deve começar com /'),
+    author: s.object({
+      name: s.string(),
+      avatar: s.string().regex(/^\//, 'O caminho deve começar com /'),
     }),
+    slug: s.path(),
+    raw: s.raw(),
+    
+  }),
 });
 
 export default defineConfig({
@@ -26,9 +26,6 @@ export default defineConfig({
     base: '/static/',
     name: '[name]-[hash:6].[ext]',
     clean: true,
-  },
-  markdown: {
-    gfm: true,
   },
   collections: { posts },
 });

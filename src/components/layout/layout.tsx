@@ -1,3 +1,4 @@
+import { CallToAction } from '@/templates/lading-page/sections';
 import { Footer } from './footer';
 import { Header } from './header';
 import { Inter, PT_Sans_Caption } from 'next/font/google';
@@ -21,6 +22,7 @@ export const Layout = ({ children }: LayoutProps) => {
     <div className={`${inter.className} ${ptSansCaption.className} relative flex min-h-screen flex-col bg-gray-700`}>
       <Header />
       <main className="flex-1 flex flex-col bg-gray-700 mb-12">{children}</main>
+      <CallToAction />
       <Footer/>
     </div>
   );
